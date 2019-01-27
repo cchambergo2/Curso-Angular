@@ -7,4 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'platzisquare';
+  lugares: any = [
+    { active: true, nombre: 'Floreria' },
+    { active: true, nombre: 'Donuts' },
+    { active: true, nombre: 'Veterinaria' },
+    { active: true, nombre: 'sushi' },
+    { active: true, nombre: 'zapateria' },
+  ];
+  constructor() { }
+
+
 }
