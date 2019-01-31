@@ -6,10 +6,12 @@ import {FormsModule} from '@angular/forms';
 import { from } from 'rxjs';
 
 import { AgmCoreModule } from '@agm/core';
+import { ResaltarDirective } from './directives/resaltar.directive';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResaltarDirective
   ],
   imports: [
     BrowserModule,
