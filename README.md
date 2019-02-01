@@ -2,6 +2,22 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.1.
 
+# Bootstrap
+
+npm install bootstrap --save
+npm install jquery --save
+npm install popper.js --save
+
+"styles": [   
+    "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+    "styles.css"
+  ],
+  "scripts": [  
+    "../node_modules/jquery/dist/jquery.min.js",
+    "../node_modules/popper.js/dist/umd/popper.min.js",
+    "../node_modules/bootstrap/dist/js/bootstrap.min.js"
+  ],
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
