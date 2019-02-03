@@ -14,14 +14,19 @@ import { LugaresComponent } from './lugares/lugares.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { LugaresService } from './services/lugares.service';
 import { environment } from '../environments/environment';
-import { AngularFireModule } from 'angularfire2';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { CrearComponent } from './crear/crear.component';
+
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
   { path: 'lugares', component: LugaresComponent },
   { path: 'detalle/:id', component: DetalleComponent },
   { path: 'contacto', component: ContactoComponent },
+  { path: 'crear', component: CrearComponent },
 ];
 @NgModule({
   declarations: [
@@ -30,7 +35,8 @@ const appRoutes: Routes = [
     ContarClcksDirective,
     DetalleComponent,
     LugaresComponent,
-    ContactoComponent
+    ContactoComponent,
+    CrearComponent,
   ],
   imports: [
     BrowserModule,
@@ -39,9 +45,11 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyCiGsoFevMN2J-dXWtD_31AN4UkraR4Hq0'
     }),
     RouterModule.forRoot(appRoutes),
-    AngularFireModule,
+  
+    AngularFireModule.initializeApp(environment.firebase, 'PlatziSquare'), 
     AngularFirestoreModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireAuthModule, 
+    AngularFireStorageModule
   ],
   providers: [LugaresService],
   bootstrap: [AppComponent]
