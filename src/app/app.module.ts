@@ -16,10 +16,11 @@ import { LugaresService } from './services/lugares.service';
 import { environment } from '../environments/environment';
 import { CrearComponent } from './crear/crear.component';
 
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { AngularFireStorageModule } from '@angular/fire/storage';
-import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireDatabaseModule, AngularFireDatabase } from'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 const appRoutes: Routes = [
   { path: '', component: LugaresComponent },
@@ -46,12 +47,13 @@ const appRoutes: Routes = [
     }),
     RouterModule.forRoot(appRoutes),
   
-    AngularFireModule.initializeApp(environment.firebase, 'PlatziSquare'), 
+    AngularFireModule,
     AngularFirestoreModule,
-    AngularFireAuthModule, 
-    AngularFireStorageModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [LugaresService],
+  providers: [LugaresService, AngularFireDatabase],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
